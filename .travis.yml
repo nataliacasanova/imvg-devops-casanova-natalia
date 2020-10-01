@@ -1,24 +1,23 @@
 language: java
-#jdk: openjdk14 #problems with sonar-maven-plugin
 branches:
-
   only:
-    - develop
-    - "/^release-[0-999].[0-999]$/"
-    - master
+  - develop
+  - "/^release-[0-999].[0-999]$/"
+  - master
 notifications:
   slack:
-    secure: bBg+IS3qpldhTvnJlrIFfPCq8o+D9jcyENsds+ideplBPYAItCX15VfJlE/WBg4bwGzNSvDpe6W0Q+MA6UEFqsca3+XdGyUfesUFjzQRuIa8nVEPTLHv29N2OWY3is1nxIKihj8nEirEj7P7T3NcKrhBFuBRY9IXmjDCtnNSlx8lgRWu+0diana4Yj1emw58vzKricN6a5ZAgq6GiFIPKqmw6b7Ul8TU5e+GVn0E3cGFpqnaslyM22ddOewFPd49L4MlgvgqByEkB5y5A3Zim4Id1U6wIWNvvOWt9yPO+I/Dt0v9IqEaYIWqRWDY6l5eevXsgJPn9neBZ2CuxH2i6quzf93mbB8hdZXY58dwa03at8QLkwA5lBFiAOxB25J/GC1Smx9OLVHr0AJIC7HhepN1uwqhP4hGCW849y4aB3YALu7wF2zs0v/iC54Lrs+1Kva2uyUygDPhInJFftuPsYQO+1s2PgbC6q8UzkxXOCEFAKVHJJ6BJRZReF1iYOJR/KNYBwjuUnT6YTlMZwybY/gY/73ospO7blQwsJbopE4EWpGCzNSRdTjujGaIPBfIi0GMll+ILiinI/DvKgL8v7NQeaZya2m7BpxrienJ7ZPKjAgXQ4hr1OruUob3eBq7XZ3F8BDFbSbS1YOaSqn/cJhGMlSQ3E2V9vSLaWN9FIs=
+    secure: qtceeBvzqL4jaYEcVLUiQOrinYFFro6PrZWHssIQRGGei5mmvXcmueZ9MuMhM+I2dm+56HH95/AJpZ3+8uy0XbSDkGmNW8uJB5SdbH3fRkqOS2OkTcKwiM8oxsnArg2whLJixTyOvFvEcdnraAPjf61ltNHtFQlRxlCAQ9NecXOMZJsatmIfgAk/SHz0gjGhndE5WJCRtL2QUJHWEnxe4Dpf+jahdD2kughrPHgWRtNz6FRZZ3IQMeca7m+1OPeQKZL+MGBpR7UGEj82fAALOAFyIqScG4heXH2aauYOxki3mDsc05ZAGZkLZL+9TjKAwSwlVWW4gRbF+ErplEofOVrrR1v3v5n+HuRykIB5NDtYMfv7BPLjisjsGOrbJdvcvMBRrL/HzNG26fwszAuDAnrCo+LI4AJzKSOuhuVstwg6T6Ldk/RtdGuz9JIIxI8Ql4LSh5RBlq1G2T12Rc0h9v7ljDs9frsvrdjz68zWvie1rVZoGbLy7DSutNTMKwWETCdXSoFUKwX7uxvQOFv09u1IRq3Du33NwVbD22YLvrXvY9r3mhl3RL3Dmft0KJIp+Pitm5WnTybmGu5KwkuFFZzzkeS4ztz9dks06puRe9JN5P6TEkLjQnps2Ql66lT3djmL8F8BcdN/Rttb7VXy3hxjIaJNQP7jroBB1NLL/oY=
   email:
     recipients:
-      - n.casanova@alumnos.upm.es
+    - n.casanova@alumnos.upm.es
 install:
-  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script:
-  - mvn verify sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=nataliacasanova -Dsonar.login=$SONAR
+- mvn verify sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=nataliacasanova
+  -Dsonar.login=$SONAR
 deploy:
   app: imvg-devops-casanova-natalia
   provider: heroku
-  api_key: $HEROKU
+  api_key: "$HEROKU"
   on:
     branch: master
