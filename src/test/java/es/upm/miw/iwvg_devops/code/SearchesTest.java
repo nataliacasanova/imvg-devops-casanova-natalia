@@ -30,14 +30,18 @@ class SearchesTest {
     void testFindUserIdByAnyProperFraction() {
     }
 
-    void testFindUserNameByAnyImproperFraction() {
+    @Test
+    void testFindUserFamilyNameBySomeImproperFraction() {
+        assertEquals(List.of("Fernandez", "Blanco", "López", "Blanco",
+                "Torres"), new Searches().findUserFamilyNameBySomeImproperFraction()
+                .collect(Collectors.toList()));
     }
 
     @Test
     void testFindHighestFraction() {
         Fraction fraction = new Searches().findHighestFraction();
-        assertEquals(2,fraction.getNumerator());
-        assertEquals(1,fraction.getDenominator());
+        assertEquals(2, fraction.getNumerator());
+        assertEquals(1, fraction.getDenominator());
 
     }
 

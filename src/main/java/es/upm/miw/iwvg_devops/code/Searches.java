@@ -62,8 +62,11 @@ public class Searches {
         return null;
     }
 
-    public Stream<String> findUserFamilyNameByImproperFraction() {
-        return Stream.empty();
+    public Stream<String> findUserFamilyNameBySomeImproperFraction() {
+        return new UsersDatabase().findAll()
+                .filter(user -> user.getFractions().stream()
+                        .anyMatch(Fraction::isImProper))
+                .map(User::getFamilyName);
     }
 
     public Fraction findHighestFraction() {
