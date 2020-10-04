@@ -31,63 +31,63 @@ class UserTest {
     }
 
     @Test
-    void testGetName(){
-        assertEquals(NAME,user.getName());
+    void testGetName() {
+        assertEquals(NAME, user.getName());
     }
 
     @Test
-    void testSetName(){
+    void testSetName() {
         user.setName("Alicia");
-        assertEquals("Alicia",user.getName());
+        assertEquals("Alicia", user.getName());
     }
 
     @Test
-    void testGetFamilyName(){
-        assertEquals(FAMILY_NAME,user.getFamilyName());
+    void testGetFamilyName() {
+        assertEquals(FAMILY_NAME, user.getFamilyName());
     }
 
     @Test
-    void testSetFamilyName(){
+    void testSetFamilyName() {
         user.setFamilyName("Garcia");
-        assertEquals("Garcia",user.getFamilyName());
+        assertEquals("Garcia", user.getFamilyName());
     }
 
     @Test
-    void testEmptyUserConstructor(){
+    void testEmptyUserConstructor() {
         user = new User();
         assertNull(user.getId());
         assertTrue(user.getFractions().isEmpty());
     }
 
     @Test
-    void testSetFractions(){
+    void testSetFractions() {
         fractions.add(new Fraction(1, 1));
         user.setFractions(fractions);
     }
 
     @Test
-    void testAddFraction(){
-        Fraction fraction= new Fraction();
+    void testAddFraction() {
+        Fraction fraction = new Fraction();
         user.addFraction(fraction);
     }
 
     @Test
-    void testFullName(){
+    void testFullName() {
         user.setName(NAME);
         user.setFamilyName(FAMILY_NAME);
-        assertEquals("Natalia Casanova",user.fullName());
+        assertEquals("Natalia Casanova", user.fullName());
     }
 
     @Test
     void testInitials() {
         user.setName(NAME);
-        assertEquals("N.",user.initials());
+        assertEquals("N.", user.initials());
     }
 
     @Test
-    void testToString(){
-        Fraction fraction = new Fraction (2,4);
-        assertEquals("User{id='17', name='Natalia', familyName='Casanova', fractions=["+fraction+"]}",user.toString());
+    void testToString() {
+        Fraction fraction = new Fraction(2, 4);
+        assertEquals("User{id='17', name='Natalia', familyName='Casanova', fractions=[" + fraction + "]}", user.toString());
     }
 
 }
