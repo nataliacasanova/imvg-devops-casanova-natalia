@@ -60,4 +60,42 @@ class FractionTest {
     }
 
 
+    @Test
+    void testIsProper(){
+        fraction.setNumerator(2);
+        fraction.setDenominator(5);
+        assertTrue(fraction.isProper());
+    }
+
+    @Test
+    void testIsImProper(){
+        fraction.setNumerator(5);
+        fraction.setDenominator(2);
+        assertTrue(fraction.isImProper());
+    }
+
+    @Test
+    void testIsEquivalent(){
+        Fraction a= new Fraction (3,4);
+        a.isEquivalent(this.fraction);
+    }
+
+
+    @Test
+    void testAdd(){
+        Fraction a= new Fraction(NUMERATOR,DENOMINATOR);
+        fraction.add(a);
+    }
+
+    @Test
+    void testDivide(){
+        Fraction a= new Fraction(5,7);
+        fraction.divide(a);
+    }
+
+    @Test
+    void testMultiply(){
+        Fraction a= new Fraction(6,5);
+        fraction.multiply(a);
+    }
 }
