@@ -85,9 +85,7 @@ public class Searches {
     }
 
 
-    public Stream<String> findUserNameByAnyImproperFraction() {
-        return Stream.empty();
-    }
+    public Stream<String> findUserNameByAnyImproperFraction() { return Stream.empty(); }
 
     public Stream<String> findUserFamilyNameByAllNegativeSignFractionDistinct() {
         return new UsersDatabase().findAll()
@@ -109,8 +107,7 @@ public class Searches {
         return null;
     }
 
-    public Fraction findFirstFractionSubtractionByUserName(String name) {
-        return null;
+    public Fraction findFirstFractionSubtractionByUserName(String name) {return null;
     }
 
 }
