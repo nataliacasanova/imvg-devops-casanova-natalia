@@ -42,8 +42,14 @@ public class Searches {
         return null;
     }
 
-    public Fraction findFirstFractionDivisionByUserId(String id) {
-        return null;
+    public Fraction findFractionDivisionByUserId(String id) {
+
+        return new UsersDatabase().findAll()
+                .filter(user -> user.getId().equals(id))
+                .flatMap(user -> user.getFractions().stream())
+                .reduce(Fraction::divide)
+                .orElse(null);
+
     }
 
     public Double findFirstDecimalFractionByUserName(String name) {
