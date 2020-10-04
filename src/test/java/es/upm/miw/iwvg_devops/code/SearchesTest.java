@@ -57,7 +57,11 @@ class SearchesTest {
     void testFindDecimalFractionBySignFraction() {
     }
 
-    void testFindFractionAdditionByUserId() {
+    @Test
+    void testFindFractionDivisionByUserId() {
+        Fraction fraction = new Searches().findFractionDivisionByUserId("1");
+        assertEquals(0,fraction.getNumerator());
+        assertEquals(2,fraction.getDenominator());
     }
 
     void testFindFractionSubtractionByUserName() {
