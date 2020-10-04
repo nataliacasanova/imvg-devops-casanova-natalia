@@ -34,6 +34,14 @@ class SearchesTest {
     }
 
     @Test
+    void testFindHighestFraction() {
+        Fraction fraction = new Searches().findHighestFraction();
+        assertEquals(2,fraction.getNumerator());
+        assertEquals(1,fraction.getDenominator());
+
+    }
+
+    @Test
     void testFindUserFamilyNameByAllSignFractionDistinct() {
         assertEquals(List.of("Blanco", "López"), new Searches().findUserFamilyNameByAllNegativeSignFractionDistinct()
                 .collect(Collectors.toList()));
