@@ -60,6 +60,38 @@ public class Fraction {
         return (double) numerator / denominator;
     }
 
+    public boolean isProper() {
+        return this.numerator < this.denominator;
+    }
+
+    public boolean isImProper() {
+        return this.numerator > this.denominator;
+    }
+
+    public boolean isEquivalent(Fraction fraction) {
+        return (this.numerator * fraction.getDenominator()) == (this.denominator * fraction.getNumerator());
+    }
+
+    public Fraction add(Fraction fraction) {
+        int numerator = (this.numerator * fraction.getDenominator()) + (this.denominator * fraction.getNumerator());
+        int denominator = this.numerator * fraction.getDenominator();
+
+        return new Fraction(numerator, denominator);
+    }
+
+    public Fraction divide(Fraction fraction) {
+        return new Fraction(this.numerator * fraction.getDenominator(),
+                this.denominator * fraction.getNumerator());
+
+    }
+
+    public Fraction multiply(Fraction fraction) {
+        return new Fraction(this.numerator * fraction.numerator,
+                this.denominator * fraction.denominator);
+
+
+    }
+
     @Override
     public String toString() {
         return "Fraction{" +
